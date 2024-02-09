@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import ErrorPage from './routes/error';
+import Id from './routes/Id';
+import Layout from './layout/Layout';
+import Language from './routes/Language';
+import Gender from './routes/Gender';
+import Elenco from './routes/Elenco';
+const router = createBrowserRouter([
+  {
+    path: "/id",
+    element: <Id/>,
+    errorElement: <ErrorPage/>
+  },
+  {
+    path: "/Language",
+    element: <Language/>,
+    errorElement: <ErrorPage/>
+  },
+  {
+    path: "/Gender",
+    element: <Gender/>,
+    errorElement: <ErrorPage/>
+  },
+  {
+    path: "/Elenco",
+    element: <Elenco/>,
+    errorElement: <ErrorPage/>
+  },
+  {
+    path: "*",
+    element: <ErrorPage/>
+  
+  }
+]);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Layout>
+      <RouterProvider router={router} />
+    </Layout>
+  );  
 }
 
 export default App;
