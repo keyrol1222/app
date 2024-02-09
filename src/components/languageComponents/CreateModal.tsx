@@ -18,8 +18,8 @@ const CreateModal: React.FC<CreateModalProps> = ({ onClose, onSubmit, isOpen }) 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = {
-      Estado: (event.target as any).Estado.value,
-      Descripción: (event.target as any).Descripción.value,
+      estado: (event.target as any).Estado.value,
+      descripcion: (event.target as any).Descripción.value,
     };
     onSubmit(formData);
   };
